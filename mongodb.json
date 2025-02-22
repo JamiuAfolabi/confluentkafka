@@ -4,7 +4,7 @@
     "connector.class": "com.mongodb.kafka.connect.MongoSourceConnector",
     "key.converter": "org.apache.kafka.connect.storage.StringConverter",
     "value.converter": "org.apache.kafka.connect.storage.StringConverter",
-    "connection.uri": "mongodb+srv://xxx:xxx@customercluster1.ckxdm.mongodb.net/",
+    "connection.uri": "${MONGO_CONN_STRING}",
     "database": "sample_mflix",
     "collection": "users",
     "pipeline": "[{\"$match\": {\"operationType\": {\"$in\": [\"insert\", \"update\", \"replace\"]}}}, {\"$project\": {\"_id\": 1, \"fullDocument\": 1, \"ns\": 1}}]",
