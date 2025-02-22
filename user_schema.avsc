@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "User",
+  "namespace": "com.gameofthron.es",
+  "fields": [
+    {
+      "name": "_id",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "email",
+      "type": "string"
+    },
+    {
+      "name": "password",
+      "type": "string"
+    }
+  ]
+}

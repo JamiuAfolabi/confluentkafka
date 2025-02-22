@@ -1,0 +1,18 @@
+{
+  "name": "users_source",
+  "config": {
+    "connector.class": "com.mongodb.kafka.connect.MongoSourceConnector",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "connection.uri": "mongodb+srv://xxx:xxx@customercluster1.ckxdm.mongodb.net/",
+    "database": "sample_mflix",
+    "collection": "users",
+    "pipeline": "[{\"$match\": {\"operationType\": {\"$in\": [\"insert\", \"update\", \"replace\"]}}}, {\"$project\": {\"_id\": 1, \"fullDocument\": 1, \"ns\": 1}}]",
+    "publish.full.document.only": "true",
+    "topic.namespace.map": "{\"*\":\"sample_mflix.users\"}",
+    "copy.existing": "true",
+    "max.message.bytes": "5242880",
+    "producer.override.max.request.size": "5242880",
+    "consumer.override.fetch.max.bytes": "5242880"
+  }
+}
